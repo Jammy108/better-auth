@@ -50,6 +50,8 @@ interface GenericOAuthConfig {
 	 * @default []
 	 */
 	scopes?: string[];
+	loginHint?: string[];
+	texwefwef?: string[];
 	/**
 	 * Custom redirect URI.
 	 * If not provided, a default URI will be constructed.
@@ -302,6 +304,7 @@ export const genericOAuth = (options: GenericOAuthOptions) => {
 									"Scopes to be passed to the provider authorization request.",
 							})
 							.optional(),
+						loginHint: z.string().optional(),
 						requestSignUp: z
 							.boolean({
 								description:
@@ -358,6 +361,7 @@ export const genericOAuth = (options: GenericOAuthOptions) => {
 						prompt,
 						accessType,
 						authorizationUrlParams,
+						loginHint,
 					} = config;
 					let finalAuthUrl = authorizationUrl;
 					let finalTokenUrl = tokenUrl;

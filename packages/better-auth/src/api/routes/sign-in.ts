@@ -271,6 +271,7 @@ export const signInSocial = createAuthEndpoint(
 			codeVerifier,
 			redirectURI: `${c.context.baseURL}/callback/${provider.id}`,
 			scopes: c.body.scopes,
+			loginHint: c.body.loginHint
 		});
 
 		return c.json({
