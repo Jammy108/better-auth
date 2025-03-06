@@ -5,8 +5,6 @@
     "version": "0.0.2-beta.8",
     "packageManager": "pnpm@9.15.0",
     "scripts": {
-        "prepare": "pnpm build",
-        "postinstall": "pnpm build",      
         "build": "turbo --filter \"./packages/*\" build",
         "build:docs": "turbo --filter \"./docs\" build",
         "dev": "turbo --filter \"./packages/*\" dev",
