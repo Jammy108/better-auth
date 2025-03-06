@@ -37,6 +37,7 @@ export interface GoogleOptions extends ProviderOptions<GoogleProfile> {
 	prompt?: "none" | "consent" | "select_account";
 	display?: "page" | "popup" | "touch" | "wap";
 	hd?: string;
+	loginHint?: string;
 }
 
 export const google = (options: GoogleOptions) => {
@@ -69,10 +70,11 @@ export const google = (options: GoogleOptions) => {
 			});
 
 			options.accessType &&
-				url.searchParams.set("access_type", options.accessType);
+			url.searchParams.set("access_type", options.accessType);
 			options.prompt && url.searchParams.set("prompt", options.prompt);
 			options.display && url.searchParams.set("display", options.display);
 			options.hd && url.searchParams.set("hd", options.hd);
+			options.loginHint && url.searchParams.set("login_hint", options.loginHint)
 
 			return url;
 		},
