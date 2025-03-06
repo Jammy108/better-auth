@@ -18,7 +18,8 @@
     "prisma:push": "prisma db push --schema src/adapters/prisma-adapter/test/schema.prisma",
     "test:adapters": "pnpm prisma:push && vitest adapters",
     "bump": "bumpp",
-    "typecheck": "tsc --noEmit --project tsconfig.declarations.json"
+    "typecheck": "tsc --noEmit --project tsconfig.declarations.json",
+    "prepare": "pnpm run build"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
