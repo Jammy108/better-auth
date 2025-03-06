@@ -18,6 +18,7 @@ export interface OAuthProvider<
 		state: string;
 		codeVerifier: string;
 		scopes?: string[];
+		loginHint: string;
 		redirectURI: string;
 	}) => Promise<URL> | URL;
 	name: string;

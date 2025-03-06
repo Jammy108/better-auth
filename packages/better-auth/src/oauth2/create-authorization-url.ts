@@ -11,6 +11,7 @@ export async function createAuthorizationURL({
 	claims,
 	redirectURI,
 	duration,
+	loginHint,
 	prompt,
 }: {
 	id: string;
@@ -22,6 +23,7 @@ export async function createAuthorizationURL({
 	scopes: string[];
 	claims?: string[];
 	duration?: string;
+	loginHint?: string;
 	prompt?: boolean;
 }) {
 	const url = new URL(authorizationEndpoint);
@@ -56,6 +58,9 @@ export async function createAuthorizationURL({
 	}
 	if (prompt) {
 		url.searchParams.set("prompt", "select_account");
+	}
+	if (loginHint) {
+		url.searchParams.set('login_hint', loginHint);
 	}
 
 	return url;

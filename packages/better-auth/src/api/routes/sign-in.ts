@@ -119,6 +119,7 @@ export const signInSocial = createAuthEndpoint(
 						"Array of scopes to request from the provider. This will override the default scopes passed.",
 				})
 				.optional(),
+			loginHint: z.string().optional(),
 			/**
 			 * Explicitly request sign-up
 			 *

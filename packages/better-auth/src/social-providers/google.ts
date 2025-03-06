@@ -44,7 +44,7 @@ export const google = (options: GoogleOptions) => {
 	return {
 		id: "google",
 		name: "Google",
-		async createAuthorizationURL({ state, scopes, codeVerifier, redirectURI }) {
+		async createAuthorizationURL({ state, scopes, codeVerifier, loginHint, redirectURI }) {
 			if (!options.clientId || !options.clientSecret) {
 				logger.error(
 					"Client Id and Client Secret is required for Google. Make sure to provide them in the options.",
@@ -74,7 +74,7 @@ export const google = (options: GoogleOptions) => {
 			options.prompt && url.searchParams.set("prompt", options.prompt);
 			options.display && url.searchParams.set("display", options.display);
 			options.hd && url.searchParams.set("hd", options.hd);
-			options.loginHint && url.searchParams.set("login_hint", options.loginHint)
+			loginHint && url.searchParams.set("login_hint", loginHint)
 
 			return url;
 		},
