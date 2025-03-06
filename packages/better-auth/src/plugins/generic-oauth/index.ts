@@ -50,8 +50,8 @@ interface GenericOAuthConfig {
 	 * @default []
 	 */
 	scopes?: string[];
-	loginHint?: string[];
-	texwefwef?: string[];
+	loginHint?: string;
+	texwefwef?: string;
 	/**
 	 * Custom redirect URI.
 	 * If not provided, a default URI will be constructed.
@@ -204,6 +204,7 @@ export const genericOAuth = (options: GenericOAuthOptions) => {
 							state: data.state,
 							codeVerifier: c.pkce ? data.codeVerifier : undefined,
 							scopes: c.scopes || [],
+							loginHint: c.loginHint,
 							redirectURI: `${ctx.baseURL}/oauth2/callback/${c.providerId}`,
 						});
 					},
@@ -410,6 +411,7 @@ export const genericOAuth = (options: GenericOAuthOptions) => {
 						scopes: ctx.body.scopes
 							? [...ctx.body.scopes, ...(scopes || [])]
 							: scopes || [],
+						loginHint: ctx.body.loginHint,
 						redirectURI: `${ctx.context.baseURL}/oauth2/callback/${providerId}`,
 					});
 
