@@ -8,6 +8,7 @@ export interface OAuth2Tokens {
 	refreshTokenExpiresAt?: Date;
 	scopes?: string[];
 	idToken?: string;
+	loginHint?: string;
 }
 
 export interface OAuthProvider<
@@ -18,7 +19,7 @@ export interface OAuthProvider<
 		state: string;
 		codeVerifier: string;
 		scopes?: string[];
-		loginHint: string;
+		loginHint?: string;
 		redirectURI: string;
 	}) => Promise<URL> | URL;
 	name: string;
@@ -71,6 +72,7 @@ export type ProviderOptions<Profile extends Record<string, any> = any> = {
 	 * The scopes you want to request from the provider
 	 */
 	scope?: string[];
+	loginHint?: string;
 	/**
 	 * Remove default scopes of the provider
 	 */
